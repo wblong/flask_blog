@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 
+from flask_login import UserMixin
 from blog import db
 
 class Category(db.Model):
@@ -20,8 +21,13 @@ class Category(db.Model):
 
 
 
-class User(db.Model):
-
+class User(db.Model,UserMixin):
+    """
+        is_authenticated
+        is_active
+        is_anonymous
+        get_id
+    """
     __tablename__='b_user'
 
     id=db.Column(db.Integer,primary_key=True)
